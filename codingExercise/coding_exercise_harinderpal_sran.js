@@ -79,9 +79,7 @@ console.log("Question 4");
 let factorial_number = 1
 function factorial(n = 0){
     for(let i = n; i >= 1; i--){
-       
-        factorial_number = factorial_number * i;
-        
+        factorial_number = factorial_number * i;    
     }
     console.log(factorial_number);
 }
