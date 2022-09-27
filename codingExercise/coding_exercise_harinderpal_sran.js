@@ -76,15 +76,16 @@ isThereY("Crayzy")
 
 // q4
 console.log("Question 4");
-
+let factorial_number = 1
 function factorial(n = 0){
-    for(let i = 1; i <= n; i++){
-        if(Number.isInteger(n / i)){
-            console.log(i);
-        }
+    for(let i = n; i >= 1; i--){
+       
+        factorial_number = factorial_number * i;
+        
     }
+    console.log(factorial_number);
 }
-factorial(30)
+factorial(6)
 
 // q5
 console.log("Question 5");
