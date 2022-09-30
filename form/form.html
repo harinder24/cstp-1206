@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+
+    <style>
+        #box {
+            box-sizing: border-box;
+            background-color: navy;
+            color: white;
+            float: left;
+            width: 30%;
+            margin-left: 35%;
+            padding: 25px 25px 25px 20px;
+            text-align: left;
+            border: 2px solid lightgrey;
+            font-family: sans-serif;
+    
+        }
+        * {
+            box-sizing: border-box;
+
+        }
+        #box2 {
+            box-sizing: border-box;
+            float: right;
+            width: 30%;
+            border: 2px solid lightgrey;
+            background-color: navy;
+            color: white;
+          
+        }
+        #box3{
+   
+            box-sizing: border-box;
+            background-color: navy;
+            color: white;
+            float: left;
+            width: 30%;
+            margin-left: 35%;
+            padding: 25px 25px 25px 20px;
+            text-align: left;
+            border: 2px solid lightgrey;
+            font-family: sans-serif;    
+        }
+        #box4{
+            padding: 25px 25px 25px 20px;
+            box-sizing: border-box;
+            float: right;
+            width: 30%;
+            border: 2px solid lightgrey;
+            background-color: navy;
+            color: white;   
+        }
+        .border{
+            border: 2px solid black;
+        }
+        .clear{
+            clear: both;
+            width: 100%;
+        }
+        #outputInfo{
+            box-sizing: border-box;
+            background-color: navy;
+            color: white;
+            float: left;
+            width: 30%;
+            margin-left: 35%;
+            padding: 25px 25px 25px 20px;
+            text-align: left;
+            border: 2px solid lightgrey;
+            font-family: sans-serif;  
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box2">
+        <ul>
+            <li>
+                First and Last names should be more than 3 characters.
+            </li>
+            <li>
+                Email must include one letter, digit, "." and "@".
+            </li>
+            <li>
+                Password must contain one uppercase, lowercase, digit, special <br>character and must be more or equal to 8 character.
+            </li>
+            <li>
+                Confirm password must be identical to password.
+            </li>
+        </li>
+    </div>
+    <div id="box">
+        
+            <div style="padding-bottom: 30px;">
+                <h1>Register</h1>
+                <div>First Name</div>
+                <input type="text" id ="#fname">
+            </div>
+
+            <div style="padding-bottom: 30px;">
+                <div>Last Name</div>
+                <input type="text" id="#lname">
+            </div>
+
+            <div style="padding-bottom: 30px;">
+                <div>Student ID</div>
+                <input type="text" id="#studentID">
+            </div>
+        
+            <div style="padding-bottom: 30px;">
+                <div>Email</div>
+                <input type="email" id = "#email">
+            </div>
+        
+        
+            <div style="padding-bottom: 30px;">
+                <div>Password</div>
+                <input type="password" id = "#password">
+            </div>
+        
+        
+            <div style="padding-bottom: 30px;">
+                <div>Confirm Password</div>
+                <input type="password" id = "#cpassword">
+            </div>
+        
+        
+            <div>
+                <button id="btn">Register</button>
+            </div>
+        
+        </div>
+        <div id="box4">
+            <div style="padding-bottom: 30px;">
+                <h1>Password Recovery</h1>
+                <p>Type email address to get access code</p>
+                <div>Email</div>
+                <input type="email" id = "#emailRecovery">   
+            </div>
+            <div style="padding-bottom: 30px;">
+                <button id="btn3">Get access code</button>
+            </div>
+            <div style="padding-bottom: 30px;">
+                <div>Acess Code</div>
+                <input type="text" id = "#accessCode">   
+            </div>
+            <div style="padding-bottom: 30px;">
+                <div>New Password</div>
+                <input type="password" id = "#newPass">   
+            </div>
+            <div style="padding-bottom: 30px;">
+                <div>Confirm New Password</div>
+                <input type="password" id = "#confirmNewPass">   
+            </div>
+            <div style="padding-bottom: 30px;">
+                <button id="btn4">Change Password</button>
+            </div>
+        </div>
+   
+        <div id="box3">
+            <div style="padding-bottom: 30px;">
+                <h1>Sign in</h1>
+                <p>For information</p>
+                <div>Email</div>
+                <input type="email" id = "#emailVerification">
+            </div>
+            <div style="padding-bottom: 30px;">
+                <div>Password</div>
+                <input type="password" id = "#passwordVerification">
+            </div>
+            <div style="padding-bottom: 30px;">
+                <button id="btn2">Sign in</button>
+            </div>
+            <div style="padding-bottom: 30px;">
+                <button id="btn5">Clear!</button>
+            </div>
+        </div>
+        <div id="#signInTable">
+            
+        </div>
+        <div class="clear" id="outputInfo">
+            <h1>Get all Users info</h1>
+            <div style="padding-bottom: 30px;">
+                <button id="btn6">Users info!</button>
+            </div>
+            <div style="padding-bottom: 30px;">
+                <button id="btn7">Clear!</button>
+            </div>
+        </div>
+        <div id = "#outputTable">
+            
+        </div>
+
+        
+    <script src="C:\Users\hss02\OneDrive\Desktop\form\form.js"></script>    
+</body>
+</html>
