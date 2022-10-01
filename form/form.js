@@ -8,7 +8,7 @@ let randomWord;
 let validation = true;
 let userList = []
 let updatedUserList;
-const passMustCharacter = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/ 
+const passMustCharacter = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,25}$/ 
 
 
 
@@ -25,6 +25,14 @@ btn.addEventListener("click", function () {
     }
     if(fname.value.length <= 3){
         text += "First name should be more than 3 characters.\n"
+        validation = false
+    }
+    if(fname.value.includes(" ")){
+        text += "First name must not include spaces\n"
+        validation = false
+    }
+    if(lname.value.includes(" ")){
+        text += "Last name must not include spaces\n"
         validation = false
     }
     
@@ -102,98 +110,99 @@ let table1 = document.createElement("table")
 let emailVerification = document.getElementById("#emailVerification");
 let passwordVerification = document.getElementById("#passwordVerification");
 let validation2 = true;
-let firstNameOutput = ""
-let lastNameOutput = ""
-let studentIDOutput = ""
-let emailOutput = ""
-let passwordOutput = ""
+
 btn2.addEventListener("click", function(){
     table1.innerHTML = ""
     h2.innerHTML = ""
     validation2 = true
     let myBool = false;
-    if(emailVerification.value.length == 0 || passwordVerification.value.length == 0){
+    if (updatedUserList == undefined){
+        alert("Local storage is empty, register first")
+        validation2 = false
+    }
+    if((emailVerification.value.length == 0 || passwordVerification.value.length == 0) && updatedUserList != undefined){
         alert("Some fields are empty")
         validation2 = false
     }
     if(updatedUserList != undefined && validation2 == true){
         for ( let i = 0; i < updatedUserList.length; i++ ){
             if(updatedUserList[i].emailInfo === emailVerification.value){
-                myBool = true;
+                myBool = true;}}}
+    if(emailVerification.value.length != 0 && passwordVerification.value.length != 0 && myBool == false){
+        alert("Invalid email")
+        validation2 = false
+    }
+   
+    if(updatedUserList != undefined && validation2 == true){
+        for ( let i = 0; i < updatedUserList.length; i++ ){
+            if(updatedUserList[i].emailInfo === emailVerification.value){
                 if(updatedUserList[i].passwordInfo === passwordVerification.value){
-                    firstNameOutput = updatedUserList[i].firstName
-                    lastNameOutput = updatedUserList[i].lastName
-                    studentIDOutput = updatedUserList[i].student_id
-                    emailOutput = updatedUserList[i].emailInfo
-                    passwordOutput = updatedUserList[i].passwordInfo
+                    h2.classList.add("clear")
+                    h2.textContent = "Your Information: "
+                    signInTable.appendChild(h2)  
+                    let tr1 = document.createElement("tr")
+                    for(let j = 0; j < Object.keys(updatedUserList[i]).length; j++){                           
+                        let td1 = document.createElement("td")
+                        td1.textContent = Object.keys(updatedUserList[i])[j] + " = " + Object.values(updatedUserList[i])[j]
+                        td1.classList.add("border")
+                        tr1.appendChild(td1) 
+                    }
+                    table1.appendChild(tr1)
+                    table1.classList.add("clear")
+                    
+                    signInTable.appendChild(table1)
                 }
                 else if(updatedUserList[i].passwordInfo != passwordVerification.value){
                     alert("Incorrect Password, change password to access information")
-                    validation2 = false
                 }
             }
             
         }
     }
-    if(emailVerification.value.length != 0 && passwordVerification.value.length != 0 && myBool == false){
-        alert("Invalid email")
-        validation2 = false
-    }
-    else if (updatedUserList == undefined && validation2 == true){
-        alert("Local storage is empty, register first")
-    }
-    if(validation2 == true){
-
-        let signInArr = [firstNameOutput,lastNameOutput,studentIDOutput,emailOutput,passwordOutput]
-        let outputNames = ["First Name", "Last Name", "Student Id" ,"Email", "Password"]
-
-        h2.classList.add("clear")
-        h2.textContent = "Your Information: "
-        signInTable.appendChild(h2)
-
-        let tr1 = document.createElement("tr")
-        for (let i = 0; i < signInArr.length; i++){
-            let td1 = document.createElement("td")
-            td1.textContent = outputNames[i] + " = " + signInArr[i]
-            td1.classList.add("border")
-            tr1.appendChild(td1)           
-        }
-        table1.appendChild(tr1)
-        table1.classList.add("clear")
-        signInTable.appendChild(table1)
-    }
-
 })
 
 let emailRecovery = document.getElementById("#emailRecovery")
 
 btn3.addEventListener("click", function () {
+    let myBool3 = false;
     randomWord = Math.floor(Math.random() * 25)
-    if(emailRecovery.value.length == 0){
+    if(updatedUserList == undefined){
+        alert("Local storage is empty, please register first")
+    }
+    else if(emailRecovery.value.length == 0){
         alert("Email field is empty")
     }
     else if(emailRecovery.value.length != 0 && updatedUserList != undefined){
         for ( let i = 0; i < updatedUserList.length; i++ ){
             if(updatedUserList[i].emailInfo == emailRecovery.value){
                 alert("Access code is " + randomWord)
+                myBool3 = true
             }
-
-        }
-        
+        }       
     }
-    else if(emailRecovery.value.length != 0 && updatedUserList == undefined){
-        alert("Local storage is empty, please register first")
+    if(emailRecovery.value.length != 0 && updatedUserList != undefined && myBool3 === false){
+        alert("Invalid email")
     }
+    
 })
 
 let accessCode = document.getElementById("#accessCode")
 let newPass = document.getElementById("#newPass")
 let confirmNewPass = document.getElementById("#confirmNewPass")
 btn4.addEventListener("click", function(){
-    if(accessCode.value.length === 0 || accessCode.value.length === 0 || confirmNewPass.value.length === 0){
+    if(updatedUserList === undefined){
+        alert("Local storage is empty, register first")
+    }
+    else if(emailRecovery.value.length === 0){
+        alert("Enter your email first and get access code to change password")
+    }
+    else if(accessCode.value.length === 0){
+        alert("Click on 'Get access code'")
+    }
+    else if(accessCode.value.length === 0 || newPass.value.length === 0 || confirmNewPass.value.length === 0){
         alert("Some fields are empty")
     }
-    if(parseInt(accessCode.value) == randomWord){
+    else if(parseInt(accessCode.value) == randomWord){
         if (newPass.value.match(passMustCharacter)){
             if(newPass.value == confirmNewPass.value){
                     for ( let i = 0; i < updatedUserList.length; i++ ){
@@ -215,11 +224,11 @@ btn4.addEventListener("click", function(){
             }
         }
         else{
-            alert("Wrong syntax for email")
+            alert("Wrong syntax for Password")
         }
     }
-    if(parseInt(accessCode.value) != randomWord && accessCode.value.length != 0){
-        alert("Wrong acces code")
+    else if(parseInt(accessCode.value) != randomWord && accessCode.value.length != 0){
+        alert("Wrong access code")
     }
 
 })
