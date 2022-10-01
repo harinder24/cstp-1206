@@ -197,7 +197,7 @@ btn4.addEventListener("click", function(){
         alert("Enter your email first and get access code to change password")
     }
     else if(accessCode.value.length === 0){
-        alert("Click on 'Get access code'")
+        alert("Click on 'Get access code' to fill access code field and then fill out password fields")
     }
     else if(accessCode.value.length === 0 || newPass.value.length === 0 || confirmNewPass.value.length === 0){
         alert("Some fields are empty")
