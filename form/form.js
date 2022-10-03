@@ -102,6 +102,12 @@ btn.addEventListener("click", function () {
         localStorage.setItem("userList", JSON.stringify(userList));
         updatedUserList = JSON.parse(localStorage.getItem("userList"))
         alert("Registration Complete")
+        fname.value = ""
+        lname.value = ""
+        studentID.value = ""
+        email.value = ""
+        password.value = ""
+        cpassword.value = ""
     }  
 })
 let signInTable = document.getElementById("#signInTable")
@@ -149,8 +155,10 @@ btn2.addEventListener("click", function(){
                     }
                     table1.appendChild(tr1)
                     table1.classList.add("clear")
-                    
                     signInTable.appendChild(table1)
+                    alert("Successfully signed in")
+                    emailVerification.value = ""
+                    passwordVerification.value = ""
                 }
                 else if(updatedUserList[i].passwordInfo != passwordVerification.value){
                     alert("Incorrect Password, change password to access information")
@@ -212,6 +220,10 @@ btn4.addEventListener("click", function(){
                                 userList = updatedUserList
                                 localStorage.setItem("userList", JSON.stringify(userList))
                                 alert("Password has been updated")
+                                emailRecovery.value = ""
+                                accessCode.value = ""
+                                newPass.value = ""
+                                confirmNewPass.value = ""
                             }
                             else{
                                 alert("You can't use previous password")
@@ -259,6 +271,7 @@ btn6.addEventListener("click", function(){
             table2.classList.add("clear")
         }
         outputTable.appendChild(table2)
+        alert("All user data is down below")
     }
     else if (updatedUserList == undefined){
         alert("Localstorage is empty, please register first")
