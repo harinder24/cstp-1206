@@ -36,16 +36,7 @@ btn.addEventListener("click", function () {
         validation = false
     }
     
-    if(lname.value.length <= 3){
-        text += "Last name should be more than 3 characters.\n"
-        validation = false
-    }
-    if (Number.isInteger(studentID.value)){
-    }
-    else{
-        text += "Student ID must be a number.\n"
-        validation = false
-    }
+
     if(studentID.value.length <= 5){
         text += "Student ID should be more than 5 integer.\n"
         validation = false
