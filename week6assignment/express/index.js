@@ -14,15 +14,11 @@ app.use(express.urlencoded({ extended: true }))
 app.post("/request", (req, res) => {
     const employeeInfo = req.body
     employee.push(employeeInfo) 
-    
 })
 
 app.get('/result', (req, res) => {
-
     const data = res.status(200);
-    return data.json(employee);
-
-    
+    return data.json(employee);   
 })
 
 app.listen(PORT, () => {

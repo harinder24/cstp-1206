@@ -44,23 +44,28 @@ console.log(studentWithHighestMarks(student));
 
 // first way
 
-// function missingNumber(array = []) {  // there is no need for n
-//     for (let i = 0; i < array.length; i++){
-//         if(!array.includes(i)){
-//             console.log(i);
-//         }
-//     }
-    
-// }
-
-function missingNumber(array = []) {  // there is no need for n
-  
-    let numberMissing = array.map((number, index) =>{
-        if(array.includes(index) == false){
-            return index.valueOf()
+function missingNumber(array = [], n) {
+    if(n == undefined){
+        n = array.length + 1
+    }  
+    for (let i = 0; i < n; i++){
+        if(!array.includes(i)){
+            return i;
         }
-    })
-    return numberMissing.join("")
-}
+    }
+    
+ }
+
+ // Second without n
+
+// function missingNumber(array = []) {
+  
+//     let numberMissing = array.map((number, index) =>{
+//         if(array.includes(index) == false){
+//             return index.valueOf()
+//         }
+//     })
+//     return numberMissing.join("")
+// }
 console.log( missingNumber([ 4, 5, 2, 1, 0, 3, 7]));
 
