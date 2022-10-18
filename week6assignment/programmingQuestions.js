@@ -42,6 +42,17 @@ function studentWithHighestMarks(array = []){
 
 console.log(studentWithHighestMarks(student));
 
+// first way
+
+// function missingNumber(array = []) {  // there is no need for n
+//     for (let i = 0; i < array.length; i++){
+//         if(!array.includes(i)){
+//             console.log(i);
+//         }
+//     }
+    
+// }
+
 function missingNumber(array = []) {  // there is no need for n
   
     let numberMissing = array.map((number, index) =>{
