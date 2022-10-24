@@ -20,6 +20,7 @@ $(document).ready(function () {
             
             $.post("/request", (customerData),
             function(request) { console.log(request); });
+            location.href = "http://localhost:5000/result"
 
         }
         
