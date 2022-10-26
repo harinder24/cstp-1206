@@ -27,15 +27,27 @@ app.get("/employees", (req, res) => {
     return data.json(employeeList)
 })
 
-app.get("/employees/:id", (req, res) => {   
+app.get("/employees/employeeID/:id", (req, res) => {
+
     const id = req.params.id;
     let outputArr = []
     const data = res.status(200)
     for (let i = 0 ; i < employeeList.length; i++) {
-        if (employeeList[i].employeeID === Number(id)) {  
-            return data.json(employeeList[i])   
+        if (employeeList[i].employeeID == Number(id)) {  
+            outputArr.push(employeeList[i]) 
+        
         }
-        else if(employeeList[i].department === id) {
+        
+    }
+    return data.json(outputArr)
+    
+})
+app.get("/employees/department/:id", (req, res) => { 
+    const id = req.params.id;
+    let outputArr = []
+    const data = res.status(200)
+    for (let i = 0 ; i < employeeList.length; i++) {
+        if(employeeList[i].department == id) {
             outputArr.push(employeeList[i])
         }
     }
