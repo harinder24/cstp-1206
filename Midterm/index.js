@@ -27,6 +27,25 @@ app.get("/employees", (req, res) => {
     return data.json(employeeList)
 })
 
+// first way - in a single get req , not effecient as if deparment has identical id as employee id, its causes prob
+
+// app.get("/employees/:id", (req, res) => {   
+//     const id = req.params.id;
+//     let outputArr = []
+//     const data = res.status(200)
+//     for (let i = 0 ; i < employeeList.length; i++) {
+//         if (employeeList[i].employeeID === Number(id)) {  
+//             return data.json(employeeList[i])   
+//         }
+//         else if(employeeList[i].department === id) {
+//             outputArr.push(employeeList[i])
+//         }
+//     }
+//     return data.json(outputArr)
+// })
+
+// second way its just safer
+
 app.get("/employees/employeeID/:id", (req, res) => {
 
     const id = req.params.id;
