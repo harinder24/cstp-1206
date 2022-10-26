@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input</title>
+    <style>
+        *{
+            text-align: center;
+            box-sizing: border-box;
+        }
+        #template{
+            display: block;
+            position: fixed;
+            width: 50%;
+            float: left;
+            right: 25%;
+            height: 100%;
+
+        }
+        #div1{
+            background-color: lightslategray;
+            
+        }
+        #div2{
+
+            background-color: sandybrown;
+            margin-top: 30px;
+            padding-top: 30px;
+            padding-bottom: 15px;
+        }
+        #span1{
+            display: block;
+            position: fixed;
+            float: left;
+            left: 38%;
+        }
+        #span2{
+            font-family: fantasy;
+        }
+        #span3{
+
+            background-color: sandybrown;
+            padding: 10px;
+            
+        }
+        .border{
+            border: 2px solid black;
+        }
+        .clear{
+            clear: both;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+        
+
+    <div id="input">
+        <div>
+            <span id="paddingLeft">Name     </span><input type="text" id="#name">
+            <span id="paddingLeft">Email        </span><input type="text" id="#email">
+            <span id="paddingLeft">Employee ID </span><input type="text" id="#employeeID">
+            <span id="paddingLeft">Department     </span><input type="text" id="#department">
+            <span id="paddingLeft">Salary     </span><input type="text" id="#salary">
+        </div>
+        <br>
+        <span>
+            <button id="btn">Register</button>
+            <button id="btn1">Update</button>
+            <button id="btn2">Delete</button>
+            <button id="btn3">Get all employeess</button>
+            <button id="btn4">Get employ id</button>
+            <button id="btn5">Get all department</button>
+            <button id="btn6">Sorted with salary</button>
+        </span>     
+    </div>
+    <b>To update employee info provide correct employee id</b><br>
+    <b>To delete just input employee id</b><br>
+    <div id = "#table">
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>
