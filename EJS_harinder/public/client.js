@@ -13,7 +13,7 @@ $(document).ready(function () {
             customerData = {
                 name : name.value,
                 email : email.value,
-                date: Date(),
+                date: Date()
             }
             
             $.post("/request", (customerData),
